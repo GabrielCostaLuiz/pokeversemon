@@ -1,7 +1,7 @@
 import Image from "next/image";
 import backgroundImage from '@/public/bckg_home.png'
 import { FaCircleArrowDown } from "react-icons/fa6";
-import Cards from "@/components/cards";
+import Cards from "@/components/ui/Cards";
 import { cardItems } from "@/utils/constantsPoke";
 import Link from "next/link";
 

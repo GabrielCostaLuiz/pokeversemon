@@ -3,8 +3,8 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import { clsx } from 'clsx';
 import Providers from "./provider";
-import { NavBar } from "@/components/navBar";
-import { Footer } from "@/components/footer";
+import { NavBar } from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "900"], display: 'swap', });
 

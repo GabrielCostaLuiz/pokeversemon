@@ -4,8 +4,8 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Paginat
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
 import { fetchPokemonData, fetchPokemonEspecific } from "@/lib/endpoints";
-import { LoadingPokeball } from "./divLoadingPokeball";
-import { Pokemon, ResultsNameUrl, Stat } from "@/utils/types";
+import { LoadingPokeball } from "./ui/LoadingPokeball";
+import { Pokemon, ResultsNameUrl, Stat } from "@/types/types";
 
 interface PropsTable {
   id: number;

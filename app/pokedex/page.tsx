@@ -1,46 +1,26 @@
-import { ButtonGames } from "@/components/buttonGames";
-import { LoadingPokeball } from "@/components/divLoadingPokeball";
-import { PokedexDataPokemons } from "@/components/pokedexDataPokemons";
-import { TablePokedex } from "@/components/table";
-import { fetchGamesPokemon } from "@/lib/endpoints";
-import { Suspense } from "react";
+import { getGames } from "@/actions/pokemonActions";
+import { ButtonGames } from "@/components/ui/ButtonGames";
+import { usePokemonStore } from "@/store/pokemonStore";
+import { Button } from "@nextui-org/react";
 
-
-export default async function Pokedex({searchParams,
-}: {
-  searchParams?: {
-    game?: string;
-
-  };
-}){
-
-  const query = searchParams?.game || '';
- 
- 
-    return(
-        <div>
-            <div className=" w-[97%] mx-auto bg-section my-5 rounded-xl p-5 text-white">
-                <div className="mb-10">
-                <h1 className="text-center text-5xl font-bold mb-5">Pokédex Pokémon</h1>
-
-                <p className=" text-white px-9 py-2 rounded-full text-lg text-center bg-[#68798C]">Dentro da seção da Pokédex, você mergulha em um tesouro de informações sobre todas as criaturas Pokémon encontradas ao longo da série de jogos. Nas páginas principais da lista, você pode conferir as diversas estatísticas de cada Pokémon. Ao clicar no nome de um Pokémon, você se depara com uma página detalhada, repleta de dados da Pokédex, descrições retiradas de jogos anteriores, sprites, evoluções, movimentos e muito mais!</p>
-
-                
-                </div>
-            
-            
-           <ButtonGames query={query}/>
-       
-            <div>
-                 <Suspense key={query} fallback={<LoadingPokeball/>}>
-            <PokedexDataPokemons query={query}/>
-                </Suspense> 
-                 
-            </div>
-            {/* <LoadingPokeball/> */}
-            
-            {/* <TablePokedex /> */}
-            </div>
-        </div>
-    )
+export default async function Pokedex() {
+  await getGames();
+  const games = usePokemonStore.getState().gamesPokemon;
+  
+  return (
+    <div>
+      <h2 className="text-center mb-10 text-xl font-bold ">
+        Escolha uma das franquias abaixo para explorar sua Pokédex:
+      </h2>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-5">
+        <Button
+          className="w-fit capitalize m-auto hover:bg-[#A4B1BF] hover:scale-105 transition-all"
+          variant="faded"
+        >
+          Todas Gerações
+        </Button>
+        <ButtonGames games={games} />
+      </div>
+    </div>
+  );
 }

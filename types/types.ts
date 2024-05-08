@@ -83,13 +83,13 @@ export interface Other {
 
 export interface Sprites {
     back_default:       string;
-    back_female:        null;
+    back_female:        string;
     back_shiny:         string;
-    back_shiny_female:  null;
+    back_shiny_female:  string;
     front_default:      string;
-    front_female:       null;
+    front_female:       string;
     front_shiny:        string;
-    front_shiny_female: null;
+    front_shiny_female: string;
     other?:             Other;
     versions?:          Versions;
     animated?:          Sprites;
@@ -186,6 +186,7 @@ export interface ResultsNameUrlWithGen{
     name:string;
     url:string;
     geracao: string;
+    nameOriginal?: string;
 }
 
 export interface Gerations{
@@ -193,3 +194,21 @@ export interface Gerations{
     name: string;
     url: string;
 }
+
+export interface PokedexData{
+    name: string;
+    url: string;
+    urlPokedexes: ResultsNameUrl[];
+}
+
+export interface PokemonSpecialNames {
+    name: string;
+    nameOriginal: string;
+    geracao: string;
+    urlPokedexes: { name: string; url: string; }[];
+}
+
+export interface GenerationsSpecialNames {
+    [key: string]: PokemonSpecialNames;
+}
+
