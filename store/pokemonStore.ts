@@ -14,13 +14,16 @@ type PokemonStore = {
   typesFiltred: string[];
   addTypeFiltred: (type: string) => void;
   removeTypeFiltred: (type: string) => void;
+  regionPokedex: string;
+  removeAllTypesFiltered: () => void;
+  addRegionPokedex: (region: string) => void;
 };
 
 export const usePokemonStore = create<PokemonStore>()((set) => ({
   gamesPokemon: [],
   pokemonsPokedex: [],
   addGamePokemon: (game) => set({ gamesPokemon: game }),
-  addPokemonPokedex: (pokemon) => set({ pokemonsPokedex: pokemon }),
+  addPokemonPokedex: (pokemon) => set(() => ({ pokemonsPokedex: pokemon })),
   removePokemonPokedex: () => set({ pokemonsPokedex: [] }),
   pokemonsFiltred: [],
   addPokemonFiltred: (pokemon) => set({ pokemonsFiltred: pokemon }),
@@ -28,6 +31,12 @@ export const usePokemonStore = create<PokemonStore>()((set) => ({
   typesFiltred: [],
   addTypeFiltred: (type) =>
     set((state) => ({ typesFiltred: [...state.typesFiltred, type] })),
-    removeTypeFiltred: (type) =>
+  removeTypeFiltred: (type) =>
     set((state) => ({ typesFiltred: state.typesFiltred.filter((t) => t !== type) })),
+  removeAllTypesFiltered: () =>
+    set((state) => ({ typesFiltred: [] })),
+    regionPokedex: "",
+    addRegionPokedex: (region) => set(() => ({
+        regionPokedex: region
+    })),
 }));

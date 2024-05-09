@@ -19,9 +19,9 @@ export async function setDataPokedex(url: any) {
 
   const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
  
-  const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
+  // const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
   // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
-  return filteredPokemons
+  return data
 }
 
 

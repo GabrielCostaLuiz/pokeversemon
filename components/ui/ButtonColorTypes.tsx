@@ -6,19 +6,17 @@ import { Button } from "@nextui-org/react"
 import { useState } from "react";
 
 export function ButtonColorTypes(){
-     const [typesSelected, setTypesSelected] = useState<string[]>([]);
+  const typesFiltred = usePokemonStore((state) => state.typesFiltred);
 
- 
   function handleType(e: string) {
      let types = usePokemonStore.getState().typesFiltred;
      if(types.includes(e)){
        usePokemonStore.getState().removeTypeFiltred(e);
-       setTypesSelected(typesSelected.filter((type) => type !== e));
+     
 
        return;
      }
-
-     setTypesSelected([...typesSelected, e]);   
+ 
      usePokemonStore.getState().addTypeFiltred(e);
    }
 
@@ -28,7 +26,7 @@ export function ButtonColorTypes(){
           <Button
             key={type.name}
             className={`capitalize hover:scale-105 ${
-               typesSelected.includes(type.name) ? "opacity-100" : "opacity-20"
+              typesFiltred.includes(type.name) ? "opacity-100" : "opacity-20"
              }`}
             style={{ backgroundColor: type.color }}
             variant="shadow"

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import professor from "@/public/professor.svg";
 
+export const revalidate = 3600
+
 export default function PokedexLayout({
   children,
 }: Readonly<{
