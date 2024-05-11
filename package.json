@@ -24,6 +24,7 @@
     "react-stately": "^3.31.0",
     "redux": "^5.0.1",
     "sharp": "^0.33.3",
+    "vercel": "^34.1.11",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

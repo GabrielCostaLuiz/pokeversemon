@@ -2,23 +2,7 @@ import { revalidate } from "./../app/pokedex/layout";
 import { PokedexData, Pokemon } from "@/types/types";
 import next from "next";
 
-export const fetchPokemonData = async (
-  itens: [{ name: string; url: string }]
-) => {
-  const updatedPokemons = await Promise.all(
-    itens.map(async (item) => {
-      try {
-        const res = await fetch(item.url);
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.error("Erro ao buscar dados do Pokémon:", error);
-        return null;
-      }
-    })
-  );
-  return updatedPokemons;
-};
+
 
 export const fetchPokemonEspecific = async (url: string) => {
 
