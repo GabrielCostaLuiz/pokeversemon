@@ -2,6 +2,7 @@ import { getGames } from "@/actions/pokemonActions";
 import { ButtonGames } from "@/components/ui/ButtonGames";
 import { usePokemonStore } from "@/store/pokemonStore";
 import { Button } from "@nextui-org/react";
+import { MdCatchingPokemon } from "react-icons/md";
 
 export default async function Pokedex() {
   await getGames();
@@ -19,6 +20,8 @@ export default async function Pokedex() {
         >
           Todas Gerações
         </Button>
+        
+        
         <ButtonGames games={games} />
       </div>
     </div>

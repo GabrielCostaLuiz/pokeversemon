@@ -11,7 +11,7 @@ interface Props {
 export default function Cards({name,description,image}: Props) {
 
   return (
-    <Card className="py-4 sm:grid grid-cols-2 card bg-dark">
+    <Card className="py-4 sm:grid grid-cols-2 card bg-blue_dark_secondary">
       <CardBody className="overflow-visible py-2 flex items-center justify-center">
         <Image
           alt="Card background"

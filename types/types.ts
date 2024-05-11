@@ -14,11 +14,12 @@ export interface Pokemon {
     order:                    number;
     past_abilities:           any[];
     past_types:               any[];
-    species:                  Species;
+    species:                  Species | EspeciePokemon;
     sprites:                  Sprites;
     stats:                    Stat[];
     types:                    Type[];
     weight:                   number;
+     
 }
 
 export interface Ability {
@@ -147,9 +148,9 @@ export interface OfficialArtwork {
 
 export interface Home {
     front_default:      string;
-    front_female:       null;
+    front_female:       any;
     front_shiny:        string;
-    front_shiny_female: null;
+    front_shiny_female: any;
 }
 
 export interface GenerationVii {
@@ -159,7 +160,7 @@ export interface GenerationVii {
 
 export interface DreamWorld {
     front_default: string;
-    front_female:  null;
+    front_female:  any;
 }
 
 export interface GenerationViii {
@@ -211,4 +212,77 @@ export interface PokemonSpecialNames {
 export interface GenerationsSpecialNames {
     [key: string]: PokemonSpecialNames;
 }
+
+
+export interface EspeciePokemon {
+    base_happiness:         number;
+    capture_rate:           number;
+    color:                  Color;
+    egg_groups:             Color[];
+    evolution_chain:        EvolutionChain;
+    evolves_from_species:   any;
+    flavor_text_entries:    FlavorTextEntry[];
+    form_descriptions:      any[];
+    forms_switchable:       boolean;
+    gender_rate:            number;
+    genera:                 Genus[];
+    generation:             Color;
+    growth_rate:            Color;
+    habitat:                Color;
+    has_gender_differences: boolean;
+    hatch_counter:          number;
+    id:                     number;
+    is_baby:                boolean;
+    is_legendary:           boolean;
+    is_mythical:            boolean;
+    name:                   string;
+    names:                  Name[];
+    order:                  number;
+    pal_park_encounters:    PalParkEncounter[];
+    pokedex_numbers:        PokedexNumber[];
+    shape:                  Color;
+    varieties:              Variety[];
+}
+
+export interface Color {
+    name: string;
+    url:  string;
+}
+
+export interface EvolutionChain {
+    url: string;
+}
+
+export interface FlavorTextEntry {
+    flavor_text: string;
+    language:    Color;
+    version:     Color;
+}
+
+export interface Genus {
+    genus:    string;
+    language: Color;
+}
+
+export interface Name {
+    language: Color;
+    name:     string;
+}
+
+export interface PalParkEncounter {
+    area:       Color;
+    base_score: number;
+    rate:       number;
+}
+
+export interface PokedexNumber {
+    entry_number: number;
+    pokedex:      Color;
+}
+
+export interface Variety {
+    is_default: boolean;
+    pokemon:    Color;
+}
+
 

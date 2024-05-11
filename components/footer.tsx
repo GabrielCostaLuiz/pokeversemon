@@ -2,7 +2,7 @@
 
 export function Footer(){
     return(
-        <footer className="bg-blue text-gray-100 p-4">
+        <footer className="bg-footer text-gray-100 p-4">
      
      
             <p>

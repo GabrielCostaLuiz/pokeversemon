@@ -78,7 +78,7 @@ export const fetchGamesPokemon = async () => {
 export const fetchDataPokedex = async (url?: PokedexData, urlDirect?: string) => {
   try {
     const pokemonsPokedex: any = [];
-    console.log(url)
+
     const res = await fetch(urlDirect ? urlDirect : url!.urlPokedexes[0].url);
     const data = await res.json();
 

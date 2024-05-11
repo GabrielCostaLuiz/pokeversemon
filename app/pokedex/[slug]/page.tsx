@@ -2,7 +2,7 @@ import BackPage from "@/components/ui/BackPage";
 import type { Metadata, ResolvingMetadata } from "next";
 import { colorsType, specialNames } from "@/utils/constantsPoke";
 import { getGames, setDataPokedex } from "@/actions/pokemonActions";
-import { DataPokemonsPokedex } from "@/components/ui/DataPokemonsPokedex";
+import { DataPokemonsPokedex } from "@/components/DataPokemonsPokedex";
 import { Suspense } from "react";
 import { usePokemonStore } from "@/store/pokemonStore";
 import { Button } from "@nextui-org/react";
@@ -73,13 +73,22 @@ export default async function PokedexDatPage({
       <InputGames gameName={specialNames[params.slug].name} />
       <div className="flex gap-5 justify-center items-center mt-10">
         {specialNames[params.slug].urlPokedexes.map((region, index) => {
-          return <ButtonRegions key={region.name} region={region} dataComplete={specialNames[params.slug]} index={index} />;
+          return (
+            <ButtonRegions
+              key={region.name}
+              region={region}
+              dataComplete={specialNames[params.slug]}
+              index={index}
+            />
+          );
         })}
       </div>
 
       <div className="flex gap-5 flex-wrap items-center justify-center my-10">
         <ButtonColorTypes />
       </div>
+
+      
 
       <Suspense fallback={<p>Buscando Pokemons</p>}>
         <DataPokemonsPokedex dataPokemonsPokedex={data} slug={params.slug} />

@@ -17,6 +17,12 @@ type PokemonStore = {
   regionPokedex: string;
   removeAllTypesFiltered: () => void;
   addRegionPokedex: (region: string) => void;
+  pokemonDetails: Pokemon | null;
+  setPokemonDetails: (pokemonD: Pokemon) => void;
+  nextPrevPokemonDetails: Pokemon[];
+  setNextPrevPokemonDetails: (pokemon: Pokemon[]) => void;
+  allNamesPokemons: any[];
+  addPokemons: (pokemons: any[]) => void;
 };
 
 export const usePokemonStore = create<PokemonStore>()((set) => ({
@@ -39,4 +45,10 @@ export const usePokemonStore = create<PokemonStore>()((set) => ({
     addRegionPokedex: (region) => set(() => ({
         regionPokedex: region
     })),
+    pokemonDetails: null,
+    setPokemonDetails: (pokemonD) => set(() => ({ pokemonDetails: pokemonD })),
+    nextPrevPokemonDetails: [],
+    setNextPrevPokemonDetails: (pokemon) => set({ nextPrevPokemonDetails: pokemon }),
+    allNamesPokemons: [],
+    addPokemons: (pokemons) => set({ allNamesPokemons: pokemons })
 }));

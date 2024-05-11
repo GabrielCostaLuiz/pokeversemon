@@ -28,7 +28,7 @@ export function ButtonColorTypes(){
             className={`capitalize hover:scale-105 ${
               typesFiltred.includes(type.name) ? "opacity-100" : "opacity-20"
              }`}
-            style={{ backgroundColor: type.color }}
+            style={type.name !== "legendary" ? { backgroundColor: type.color } : {backgroundImage: "linear-gradient(to right, #001F3F, #6F1E51, #FFD700)" }}
             variant="shadow"
             onClick={() => handleType(type.name)}
           >

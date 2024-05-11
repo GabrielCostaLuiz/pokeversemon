@@ -9,7 +9,7 @@ export default function PokedexLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-[97%] mx-auto bg-section my-5 rounded-xl p-5 text-white pb-10">
+    <div className="w-[97%] mx-auto bg-section my-5 rounded-xl p-5 text-white pb-10 section">
      <div className="mb-10">
           <h1 className="text-center text-5xl font-bold mb-5">
             Pokédex Pokémon

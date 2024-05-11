@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import Providers from "./provider";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
+import { usePokemonStore } from "@/store/pokemonStore";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "900"], display: 'swap', });
 
@@ -56,16 +57,37 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+async function getData() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3000", {
+    next: { revalidate: 86400 },
+  });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const data = await res.json();
+
+  usePokemonStore.getState().addPokemons(data.results);
+  return;
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await getData();
+
+  const namesPokes = usePokemonStore.getState().allNamesPokemons
+
   return (
     <html lang="pt-br">
       <body className={clsx("bg-white", lato.className ) }>
         <Providers>
-          <NavBar/>
+          <NavBar namesPokes={namesPokes}/>
           {children}
           <Footer/>
         </Providers>

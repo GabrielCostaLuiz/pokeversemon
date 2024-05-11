@@ -1,5 +1,6 @@
 import { ResultsNameUrlWithGen } from "@/types/types";
 import { specialNames } from "./constantsPoke";
+import { usePokemonStore } from "@/store/pokemonStore";
 
 // Função para formatar os nomes dos jogos específicos
 export const formatSpecialNames = (games: ResultsNameUrlWithGen[]) => {
@@ -29,3 +30,6 @@ export async function generateStaticParams() {
     throw new Error("Erro ao gerar os parâmetros estáticos");
   }
 }
+
+
+export const pokesNames = usePokemonStore.getState().allNamesPokemons

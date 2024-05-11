@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 html{
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased
@@ -17,20 +19,7 @@ body{
   overflow: hidden;
 }
 
-@keyframes upAndDown {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .elementToAnimate {
-    animation: upAndDown 1s ease infinite;
-  }
-
-  #welcome{
+#welcome{
     background-image: url(/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -88,6 +77,26 @@ body{
   button:disabled{
     cursor: not-allowed;
   }
+
+
+  .section{
+    width: 97%;
+    margin: auto;
+    margin-block:1.25rem ;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+
+    padding-bottom: 2.5rem;
+    
+  }
+
+  .bgPokeball{
+    background-image: url(/pokeballFundo.png);
+  
+  }
+
+
+
 
 
 
