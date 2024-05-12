@@ -7,21 +7,20 @@ import { MdCatchingPokemon } from "react-icons/md";
 export default async function Pokedex() {
   await getGames();
   const games = usePokemonStore.getState().gamesPokemon;
-  
+
   return (
     <div>
       <h2 className="text-center mb-10 text-xl font-bold ">
         Escolha uma das franquias abaixo para explorar sua Pokédex:
       </h2>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-5">
-        <Button
+        {/* <Button
           className="w-fit capitalize m-auto hover:bg-[#A4B1BF] hover:scale-105 transition-all"
           variant="faded"
         >
           Todas Gerações
-        </Button>
-        
-        
+        </Button> */}
+
         <ButtonGames games={games} />
       </div>
     </div>

@@ -2,14 +2,10 @@ import Image from "next/image";
 import backgroundImage from "@/public/bckg_home.png";
 import { FaCircleArrowDown } from "react-icons/fa6";
 import Cards from "@/components/ui/Cards";
-import { cardItems } from "@/utils/constantsPoke";
+import { cardItems } from "@/utils/constants";
 import Link from "next/link";
-import { usePokemonStore } from "@/store/pokemonStore";
-
-
 
 export default async function Home() {
-
   return (
     <main>
       <div className="relative flex justify-center items-center 100vh">
@@ -50,23 +46,33 @@ export default async function Home() {
 
       <div className="text-center py-10 px-10 " id="welcome">
         <div>
-          <h2 className="text-4xl text-blue_dark_secondary font-bold">BEM VINDO A</h2>
+          <h2 className="text-4xl text-blue_dark_secondary font-bold">
+            BEM VINDO A
+          </h2>
           <div className="flex justify-center items-center gap-3">
-            <Image
-              src="/Pokeball.png"
-              alt="Picture of the author"
-              width={50}
-              height={50}
-            />
-            <h1 className="text-5xl md:text-7xl text-blue_light font-bold my-5  ">
-              POKEVERSEMON{" "}
+            <h1 className="text-4xl items-center flex sm:text-5xl md:text-7xl text-blue_light font-bold my-5  ">
+              P{" "}
+              <span>
+                <Image
+                  src="/Pokeball.png"
+                  alt="Picture of the author"
+                  width={50}
+                  height={50}
+                  sizes="100vw"
+                />
+              </span>{" "}
+              KEVERSEM{" "}
+              <span>
+                <Image
+                  src="/Pokeball.png"
+                  alt="Picture of the author"
+                  width={50}
+                  height={50}
+                  className=""
+                />
+              </span>{" "}
+              N{" "}
             </h1>
-            <Image
-              src="/Pokeball.png"
-              alt="Picture of the author"
-              width={50}
-              height={50}
-            />
           </div>
           <p className="text-blue_dark text-xl my-5 font-bold">
             No Pokeversemon, sua jornada pelo mundo dos Pokémon está prestes a

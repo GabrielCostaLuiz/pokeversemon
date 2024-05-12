@@ -1,8 +1,4 @@
-import { revalidate } from "./../app/pokedex/layout";
 import { PokedexData, Pokemon } from "@/types/types";
-import next from "next";
-
-
 
 export const fetchPokemonEspecific = async (url: string) => {
   try {
@@ -80,3 +76,13 @@ export const fetchDataPokedex = async (url?: PokedexData, urlDirect?: string) =>
     return null;
   }
 };
+
+export async function fetchPokemonsByRegion(region: string | undefined) {
+  try {
+    const newPokemons = await fetchDataPokedex(undefined, region);
+    return newPokemons.filter((pokemon: Pokemon) => pokemon !== null);
+  } catch (error) {
+    console.error("Erro ao buscar novos Pokémon:", error);
+    return [];
+  }
+}

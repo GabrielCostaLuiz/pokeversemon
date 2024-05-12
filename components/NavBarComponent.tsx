@@ -16,8 +16,6 @@ import {
   Dropdown,
   DropdownItem,
   Input,
-  Select,
-  SelectItem,
 } from "@nextui-org/react";
 import { menuItems } from "@/utils/navigation";
 import {
@@ -28,11 +26,9 @@ import {
   Server,
   TagUser,
   Scale,
-} from "@/utils/icons";
+} from "@/components/ui/icons";
 import { clsx } from "clsx";
 import { usePathname } from "next/navigation";
-
-
 
 const icons = {
   chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -59,7 +55,9 @@ export function NavBarComponent({ namesPokes }: any) {
   }
 
   useEffect(() => {
-    setSearchPoke(namesPokes.filter((name: any) => name.name.includes(searchValue)));
+    setSearchPoke(
+      namesPokes.filter((name: any) => name.name.includes(searchValue))
+    );
   }, [searchValue, namesPokes]);
 
   return (
@@ -316,7 +314,11 @@ export function NavBarComponent({ namesPokes }: any) {
             value={searchValue}
             onChange={handleSearchValue}
           />
-          <div className={`absolute w-[80%] top-16 px-1 rounded-b-xl   bg-white overflow-scroll overflow-x-hidden flex flex-col gap-2 ${searchValue !== "" ? "block": "hidden"} max-h-56 min-h-fit`}>
+          <div
+            className={`absolute w-[80%] top-16 px-1 rounded-b-xl   bg-white overflow-scroll overflow-x-hidden flex flex-col gap-2 ${
+              searchValue !== "" ? "block" : "hidden"
+            } max-h-56 min-h-fit`}
+          >
             {searchPoke?.map((poke: any) => (
               <Link
                 href={`/pokemon/${poke.name}`}
@@ -341,10 +343,10 @@ export function NavBarComponent({ namesPokes }: any) {
                     ? "danger"
                     : "foreground"
                 }
-                href="#"
+                href={item.url}
                 size="lg"
               >
-                {item}
+                {item.name}
               </Link>
             </NavbarMenuItem>
           ))}

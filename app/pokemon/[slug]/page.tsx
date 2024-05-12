@@ -14,19 +14,22 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const id = params.slug.toUpperCase();
+  const id = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
+  
 
   // fetch data
-  // const product = await fetch(`https://.../${id}`).then((res) => res.json())
+  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.slug}`).then((res) => res.json())
+
+  const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`
 
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
 
   return {
     title: id,
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages],
-    // },
+    openGraph: {
+      images: [img],
+    },
   };
 }
 
@@ -35,7 +38,6 @@ export default async function DetailsPokemon({ params }: Props) {
 
   const pokemonDetails = usePokemonStore.getState().pokemonDetails;
   const nextPrevPokemon = usePokemonStore.getState().nextPrevPokemonDetails;
-
 
   return (
     <div className="mx-auto bg-section text-white  section">

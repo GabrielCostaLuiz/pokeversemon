@@ -1,6 +1,6 @@
 "use client";
 
-import { geracoes, specialNames } from "@/utils/constantsPoke";
+import { geracoes, specialNames } from "@/utils/constants";
 import { ResultsNameUrlWithGen } from "@/types/types";
 import {
   Autocomplete,
@@ -62,12 +62,15 @@ export function InputGames({ gameName }: Props) {
 
   return (
     <div className="flex flex-col text-center  gap-5  justify-center items-center w-full ">
-      <div className="flex justify-start  w-full">
+        <div className="flex justify-start  w-full">
         <BackPage />
-        <h2 className="text-center -ml-10 text-3xl capitalize font-bold w-full">
+        </div>
+     
+     
+        <h2 className="text-center  text-3xl capitalize font-bold w-full">
           {gameName}
         </h2>
-      </div>
+    
 
       {!isLoading && (
         <Autocomplete

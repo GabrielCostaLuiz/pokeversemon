@@ -2,104 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-html{
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
-body{
+body {
   background-image: url(/background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .no-scroll {
   overflow: hidden;
 }
 
-#welcome{
-    background-image: url(/background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+#welcome {
+  background-image: url(/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.card {
+  background-image: url(/bckg_pokeball.png);
+  background-size: fill;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.imgPokeball {
+  animation-name: identifier;
+  animation-duration: 2s;
+  visibility: hidden;
+}
+
+.imgPokeballWhite {
+  animation-name: identifier2;
+  animation-duration: 1s;
+  visibility: hidden;
+}
+
+@keyframes identifier {
+  from {
+    display: block !important;
+    visibility: visible;
+    transform: translateY(0);
   }
-
-  .card{
-    background-image: url(/bckg_pokeball.png);
-    background-size: fill;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-
-  .imgPokeball{
-    animation-name: identifier;
-    animation-duration: 2s;
+  to {
+    transform: translateY(-1000px);
     visibility: hidden;
+    display: none;
   }
+}
 
-  .imgPokeballWhite{
-    animation-name: identifier2;
-    animation-duration: 1s;
+@keyframes identifier2 {
+  from {
+    display: block !important;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(3000px);
     visibility: hidden;
+    display: none;
   }
+}
 
-  @keyframes identifier {
-    from{
-      display: block !important;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    to{
-      transform: translateY(-1000px);
-      visibility: hidden;
-      display: none;
+button:disabled {
+  cursor: not-allowed;
+}
 
-    }
-  }
+.section {
+  width: 97%;
+  margin: auto;
+  margin-block: 1.25rem;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
 
-  @keyframes identifier2 {
-    from{
-      display: block !important;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    to{
-      transform: translateY(3000px);
-      visibility: hidden;
-      display: none;
+  padding-bottom: 2.5rem;
+}
 
-    }
-  }
-
-  button:disabled{
-    cursor: not-allowed;
-  }
-
-
-  .section{
-    width: 97%;
-    margin: auto;
-    margin-block:1.25rem ;
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-
-    padding-bottom: 2.5rem;
-    
-  }
-
-  .bgPokeball{
-    background-image: url(/pokeballFundo.png);
-  
-  }
-
-
-
-
-
-
-
-
-
+.bgPokeball {
+  background-image: url(/pokeballFundo.png);
+}

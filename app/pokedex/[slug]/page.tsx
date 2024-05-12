@@ -1,9 +1,6 @@
-
 import type { Metadata, ResolvingMetadata } from "next";
-import {  specialNames } from "@/utils/constantsPoke";
-import { setDataPokedex } from "@/actions/pokemonActions";
+import { specialNames } from "@/utils/constants";
 import { DataPokemonsPokedex } from "@/components/DataPokemonsPokedex";
-import { Suspense } from "react";
 import { ButtonColorTypes } from "@/components/ui/ButtonColorTypes";
 import { InputGames } from "@/components/ui/InputGames";
 import { ButtonRegions } from "@/components/ui/ButtonRegions";
@@ -11,7 +8,6 @@ import { ButtonRegions } from "@/components/ui/ButtonRegions";
 type Props = {
   params: { slug: string };
 };
-
 
 export async function generateMetadata(
   { params }: Props,
@@ -33,19 +29,15 @@ export async function generateMetadata(
   };
 }
 
-
-
 export default async function PokedexDatPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  // const data = await getDatas(params.slug);
-
   return (
     <div>
       <InputGames gameName={specialNames[params.slug].name} />
-      <div className="flex gap-5 justify-center items-center mt-10">
+      <div className="flex flex-wrap gap-5 justify-center items-center mt-10">
         {specialNames[params.slug].urlPokedexes.map((region, index) => {
           return (
             <ButtonRegions
@@ -62,10 +54,9 @@ export default async function PokedexDatPage({
         <ButtonColorTypes />
       </div>
 
-      <Suspense fallback={<p>Buscando Pokemons</p>}>
-        <DataPokemonsPokedex  slug={params.slug} />
-      </Suspense>
-      {/* <InputGames /> */}
+      <DataPokemonsPokedex slug={params.slug} />
+
+    
     </div>
   );
 }

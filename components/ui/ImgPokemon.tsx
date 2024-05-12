@@ -1,10 +1,9 @@
-import { specialNames } from "@/utils/constantsPoke";
-import { Sprites } from "@/types/types"
+import { specialNames } from "@/utils/constants";
+import { Sprites } from "@/types/types";
 import Image from "next/image";
 
-interface Props{
-    // geracao: string,
-    sprites: Sprites
+interface Props {
+  sprites: Sprites;
 }
 
 // const geracoesConst = {
@@ -20,31 +19,27 @@ interface Props{
 //     "10º Geração": "generation-x",
 // }
 
-export function ImgPokemon({ sprites}: Props){
-    // const findKeyByName = (nameToFind, object) => {
-    //     for (const key in object) {
-    //         if (object.hasOwnProperty(key) && object[key].name === nameToFind) {
-    //             return key;
-    //         }
-    //     }
-    //     return null;
-    // };
-    // console.log(geracao.geracao)
-    // const key = findKeyByName(geracao.name, specialNames);
-    // console.log(key)
-    // const urlImage = key === "scarlet-violet" || key === "sword-shield" || key === "brilliant-diamond-and-shining-pearl" || key === "legends-arceus" ? sprites.front_default : sprites.versions[geracoesConst[geracao.geracao]][key === "gold-silver" ? "silver" : key === "black-2-white-2" ? "black-white" : key === "omega-ruby-alpha-sapphire" ? "omegaruby-alphasapphire" : key === "sun-moon" ? "ultra-sun-ultra-moon" : geracoesConst[geracao.geracao] === "generation-viii" ? "ultra-sun-ultra-moon" : key === "lets-go-pikachu-lets-go-eevee"?"ultra-sun-ultra-moon" : key].front_default
+export function ImgPokemon({ sprites }: Props) {
+  // const findKeyByName = (nameToFind, object) => {
+  //     for (const key in object) {
+  //         if (object.hasOwnProperty(key) && object[key].name === nameToFind) {
+  //             return key;
+  //         }
+  //     }
+  //     return null;
+  // };
+  // console.log(geracao.geracao)
+  // const key = findKeyByName(geracao.name, specialNames);
+  // console.log(key)
+  // const urlImage = key === "scarlet-violet" || key === "sword-shield" || key === "brilliant-diamond-and-shining-pearl" || key === "legends-arceus" ? sprites.front_default : sprites.versions[geracoesConst[geracao.geracao]][key === "gold-silver" ? "silver" : key === "black-2-white-2" ? "black-white" : key === "omega-ruby-alpha-sapphire" ? "omegaruby-alphasapphire" : key === "sun-moon" ? "ultra-sun-ultra-moon" : geracoesConst[geracao.geracao] === "generation-viii" ? "ultra-sun-ultra-moon" : key === "lets-go-pikachu-lets-go-eevee"?"ultra-sun-ultra-moon" : key].front_default
 
-  
-    return(
-        
-            <Image
-            src={sprites.front_default}
-            width={100}
-            height={100} 
-            alt="pokemon" 
-            className="object-cover"          
-            />
-        
-    )
-    
+  return (
+    <Image
+      src={sprites.front_default}
+      width={100}
+      height={100}
+      alt="pokemon"
+      className="object-cover"
+    />
+  );
 }

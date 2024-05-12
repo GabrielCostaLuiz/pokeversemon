@@ -1,11 +1,11 @@
 "use client";
-import { Ability, Color, Move, Pokemon, Stat, Type } from "@/types/types";
-import { colorsType } from "@/utils/constantsPoke";
+import { Color, Pokemon, Type } from "@/types/types";
+import { colorsType } from "@/utils/constants";
 import { formattedId } from "@/utils/utils";
 import { Button } from "@nextui-org/react";
 import clsx from "clsx";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import silhuetaPokemon from "@/public/silhueta.svg";
 import Image from "next/image";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -16,38 +16,8 @@ interface Props {
 }
 
 export function DataPokemonDetails({ pokemonDetails, nextPrevPokemon }: Props) {
-  // const [pokemonDetails, setPokemonDetails] = useState<Pokemon>();
   const [viewDetailsBasic, setViewDetailsBasic] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchDataPokemon = async () => {
-  //     const response = await getDataPokemon(namePokemon);
-  //     setPokemonDetails(response);
-
-  //     const prevId = response.id - 1;
-  //     const nextId = response.id + 1;
-  //     const prevPokemon = await getDataPokemon(prevId.toString());
-  //     const nextPokemon = await getDataPokemon(nextId.toString());
-
-  //     if (!prevPokemon) {
-  //       const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3000");
-  //       const data = await res.json();
-  //       const prevPokemon = await getDataPokemon(data.results[data.count]);
-  //       return setPrevNextPokemon([prevPokemon, nextPokemon]);
-  //     }
-
-  //     if (!nextPokemon) {
-  //       const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3000");
-  //       const data = await res.json();
-  //       const nextPokemon = await getDataPokemon(data.results[data.count]);
-  //       return setPrevNextPokemon([prevPokemon, nextPokemon]);
-  //     }
-
-  //     setPrevNextPokemon([prevPokemon, nextPokemon]);
-  //   };
-
-  //   fetchDataPokemon();
-  // }, [namePokemon]);
   const bckgColor = colorsType.filter(
     (color) => color.name === pokemonDetails.types[0].type.name
   );
