@@ -5,7 +5,6 @@ import next from "next";
 
 
 export const fetchPokemonEspecific = async (url: string) => {
-
   try {
 
     // Fetch dos dados básicos do Pokémon

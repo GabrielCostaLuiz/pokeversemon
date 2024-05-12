@@ -18,14 +18,14 @@ export async function getGames() {
   // revalidatePath("/pokedex");
 }
 
-export async function setDataPokedex(url: any) {
-  const dataPokedex = await fetchDataPokedex(url);
+// export async function setDataPokedex(url: any) {
+//   const dataPokedex = await fetchDataPokedex(url);
 
-  const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
-  const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
-  // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
-  return filteredPokemons;
-}
+//   const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
+//   const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
+//   // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
+//   return filteredPokemons;
+// }
 
 export async function getDataPokemon(pokemon: string) {
 
