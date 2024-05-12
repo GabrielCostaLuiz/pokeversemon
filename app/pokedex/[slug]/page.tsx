@@ -1,7 +1,11 @@
+import BackPage from "@/components/ui/BackPage";
 import type { Metadata, ResolvingMetadata } from "next";
-import {  specialNames } from "@/utils/constantsPoke";
+import { colorsType, specialNames } from "@/utils/constantsPoke";
+import { getGames, setDataPokedex } from "@/actions/pokemonActions";
 import { DataPokemonsPokedex } from "@/components/DataPokemonsPokedex";
 import { Suspense } from "react";
+import { usePokemonStore } from "@/store/pokemonStore";
+import { Button } from "@nextui-org/react";
 import { ButtonColorTypes } from "@/components/ui/ButtonColorTypes";
 import { InputGames } from "@/components/ui/InputGames";
 import { fetchDataPokedex } from "@/lib/endpoints";
@@ -19,15 +23,6 @@ export async function generateStaticParams() {
   return posts.map((slug) => ({
     slug,
   }));
-}
-
-export async function setDataPokedex(url: any) {
-  const dataPokedex = await fetchDataPokedex(url);
-
-  const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
-  const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
-  // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
-  return filteredPokemons;
 }
 
 export async function generateMetadata(
@@ -92,8 +87,6 @@ export default async function PokedexDatPage({
       <div className="flex gap-5 flex-wrap items-center justify-center my-10">
         <ButtonColorTypes />
       </div>
-
-      
 
       <Suspense fallback={<p>Buscando Pokemons</p>}>
         <DataPokemonsPokedex dataPokemonsPokedex={data} slug={params.slug} />

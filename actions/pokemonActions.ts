@@ -18,17 +18,16 @@ export async function getGames() {
   // revalidatePath("/pokedex");
 }
 
-// export async function setDataPokedex(url: any) {
-//   const dataPokedex = await fetchDataPokedex(url);
+export async function setDataPokedex(url: any) {
+  const dataPokedex = await fetchDataPokedex(url);
 
-//   const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
-//   const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
-//   // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
-//   return filteredPokemons;
-// }
+  const data = await dataPokedex.filter((pokemon: any) => pokemon !== null);
+  const filteredPokemons = await data.sort((a: any, b: any) => a.id - b.id);
+  // usePokemonStore.getState().addPokemonPokedex(filteredPokemons);
+  return filteredPokemons;
+}
 
 export async function getDataPokemon(pokemon: string) {
-
   const dataPokemon = await fetchPokemonEspecific(pokemon);
 
   const prevId = dataPokemon.id - 1;
@@ -40,7 +39,9 @@ export async function getDataPokemon(pokemon: string) {
   if (!prevPokemon) {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3000");
     const data = await res.json();
-    prevPokemon = await fetchPokemonEspecific(data.results[data.count - 1].name);
+    prevPokemon = await fetchPokemonEspecific(
+      data.results[data.count - 1].name
+    );
   }
 
   if (!nextPokemon) {
@@ -49,10 +50,9 @@ export async function getDataPokemon(pokemon: string) {
     nextPokemon = await fetchPokemonEspecific(data.results[0].name);
   }
 
-  const fetchEspecie = await fetch(dataPokemon.species.url)
-    .then((res) => res.json())
-
-
+  const fetchEspecie = await fetch(dataPokemon.species.url).then((res) =>
+    res.json()
+  );
 
   dataPokemon.species = fetchEspecie;
 
@@ -61,14 +61,14 @@ export async function getDataPokemon(pokemon: string) {
   usePokemonStore.getState().setPokemonDetails(dataPokemon);
   usePokemonStore.getState().setNextPrevPokemonDetails(prevNextPokemon);
 
-  return 
+  return;
 }
 
 export async function getDataPokemonDetails(pokemon: string) {}
 
-export async function getNamePoke(){
-  const aa = usePokemonStore.getState().allNamesPokemons
-  const {allNamesPokemons} = usePokemonStore.getState()
+export async function getNamePoke() {
+  const aa = usePokemonStore.getState().allNamesPokemons;
+  const { allNamesPokemons } = usePokemonStore.getState();
 
-  revalidatePath("/")
+  revalidatePath("/");
 }
