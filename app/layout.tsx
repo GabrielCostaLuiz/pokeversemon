@@ -5,6 +5,8 @@ import { clsx } from "clsx";
 import Providers from "./provider";
 
 import { usePokemonStore } from "@/store/pokemonStore";
+import { NavBar } from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
 // import { NavBar } from "../components/NavBar";
 // import { Footer } from "../components/Footer";
 
@@ -94,9 +96,9 @@ export default async function RootLayout({
     <html lang="pt-br">
       <body className={clsx("bg-white", lato.className)}>
         <Providers>
-          {/* <NavBar namesPokes={namesPokes} /> */}
+          <NavBar namesPokes={namesPokes} />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </Providers>
       </body>
     </html>
