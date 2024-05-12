@@ -46,7 +46,7 @@ const icons = {
   user: <TagUser className="text-danger" fill="currentColor" size={30} />,
 };
 
-export function NavBar({ namesPokes }: any) {
+export function NavBarComponent({ namesPokes }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
   const [searchPoke, setSearchPoke] = React.useState<any>();
