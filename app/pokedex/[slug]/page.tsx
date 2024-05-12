@@ -17,13 +17,6 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateStaticParams() {
-  const posts = Object.keys(specialNames);
-
-  return posts.map((slug) => ({
-    slug,
-  }));
-}
 
 export async function generateMetadata(
   { params }: Props,
