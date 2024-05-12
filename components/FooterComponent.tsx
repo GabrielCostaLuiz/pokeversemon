@@ -1,4 +1,4 @@
-export function Footer(){
+export function FooterComponent(){
     return(
         <footer className="bg-footer text-gray-100 p-4">
      
