@@ -10,7 +10,7 @@ export default function BackPage() {
   return (
     <Button
       onClick={() => router.back()}
-      className="relative z-50 flex items-center gap-1 text-red-500"
+      className="relative z-30 flex items-center gap-1 text-red-500"
     >
       <IoChevronBack size={30} />
       Voltar

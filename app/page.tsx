@@ -14,7 +14,7 @@ export default async function Home() {
             Sejam bem-vindos, Treinadores!!
           </p>
 
-          <p className="text-lg sm:text-lg w-3/4 sm:w-2/4">
+          <p className="text-md sm:text-lg w-3/4 sm:w-2/4">
             Prepare-se para iniciar sua jornada Pokémon agora mesmo! Explore
             nossa completa Database Pokémon e utilize nossas Ferramentas para
             aprimorar suas habilidades. Participe de campeonatos e duelos
@@ -22,7 +22,7 @@ export default async function Home() {
             torne o próximo <b>MESTRE POKÉMON!</b>{" "}
           </p>
 
-          <div className="absolute bottom-5">
+          <div className="absolute bottom-10">
             <a href="#welcome">
               <FaCircleArrowDown
                 color="white"
@@ -38,9 +38,10 @@ export default async function Home() {
           sizes="100vw"
           style={{
             width: "100%",
-            height: "100vh",
+           
             filter: "brightness(0.5)",
           }}
+          className="object-cover h-[90vh] sm:!h-[100vh]"
         />
       </div>
 
@@ -55,7 +56,7 @@ export default async function Home() {
               <span>
                 <Image
                   src="/Pokeball.png"
-                  alt="Picture of the author"
+                  alt="pokeball"
                   width={50}
                   height={50}
                   sizes="100vw"
