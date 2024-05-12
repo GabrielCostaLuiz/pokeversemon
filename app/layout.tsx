@@ -5,8 +5,8 @@ import { clsx } from "clsx";
 import Providers from "./provider";
 
 import { usePokemonStore } from "@/store/pokemonStore";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
+import { NavBar } from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 const lato = Lato({
   subsets: ["latin"],

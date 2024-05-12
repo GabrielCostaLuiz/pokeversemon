@@ -31,10 +31,8 @@ import {
 } from "@/utils/icons";
 import { clsx } from "clsx";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { pokesNames } from "@/utils/utils";
-import { usePokemonStore } from "@/store/pokemonStore";
-import { getNamePoke } from "@/actions/pokemonActions";
+
+
 
 const icons = {
   chevron: <ChevronDown fill="currentColor" size={16} />,
