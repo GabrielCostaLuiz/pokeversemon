@@ -94,9 +94,9 @@ export default async function RootLayout({
     <html lang="pt-br">
       <body className={clsx("bg-white", lato.className)}>
         <Providers>
-          <NavBar namesPokes={namesPokes} />
+          {/* <NavBar namesPokes={namesPokes} /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
