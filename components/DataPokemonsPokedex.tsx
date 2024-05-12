@@ -70,7 +70,7 @@ export function DataPokemonsPokedex({ slug }: Props) {
 
     setTimeout(() => {
       setIsLoaging(false);
-    }, 5000);
+    }, 2000);
   }, [slug]);
 
   return (

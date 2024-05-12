@@ -29,6 +29,8 @@ import {
 } from "@/components/ui/icons";
 import { clsx } from "clsx";
 import { usePathname } from "next/navigation";
+import icon from "@/public/icon.png";
+import Image from "next/image";
 
 const icons = {
   chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -51,7 +53,7 @@ export function NavBarComponent({ namesPokes }: any) {
   const url = pathname;
 
   function handleSearchValue(e: any) {
-    const value = e.target.value.toLowerCase()
+    const value = e.target.value.toLowerCase();
     setSearchValue(value);
   }
 
@@ -69,7 +71,7 @@ export function NavBarComponent({ namesPokes }: any) {
         isBordered
         isMenuOpen={isMenuOpen}
         className={clsx(
-          "sm:bg-transparent  sm:absolute z-50",
+          "sm:bg-transparent py-1  sm:absolute z-50",
           url !== "/" && "!bg-navBar !relative"
         )}
       >
@@ -81,16 +83,31 @@ export function NavBarComponent({ namesPokes }: any) {
 
         <NavbarContent className="sm:hidden pr-3" justify="center">
           <NavbarBrand>
-            <Link href="/">
-              <p className="font-bold text-inherit">Logo</p>
+            <Link href="/"    className="relative flex flex-col-reverse items-center justify-center py-5">
+            <p className=" text-white font-bold ">
+                Pokeversemon
+              </p>
+              <Image src={icon} width={35} height={35} alt="logo" />
             </Link>
           </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex " justify="start">
           <NavbarBrand>
-            <Link href="/">
-              <p className="font-bold text-inherit">Logo</p>
+            <Link
+              href="/"
+              className="relative flex flex-col-reverse items-center justify-center"
+            >
+              <p className=" text-white font-bold ">
+                Pokeversemon
+              </p>
+              <Image
+                src={icon}
+                width={40}
+                height={40}
+                alt="logo"
+                quality={100}
+              />
             </Link>
           </NavbarBrand>
         </NavbarContent>
@@ -314,6 +331,7 @@ export function NavBarComponent({ namesPokes }: any) {
             type="search"
             value={searchValue}
             onChange={handleSearchValue}
+            
           />
           <div
             className={`absolute w-[80%] top-16 px-1 rounded-b-xl   bg-white overflow-scroll overflow-x-hidden flex flex-col gap-2 ${
@@ -336,8 +354,9 @@ export function NavBarComponent({ namesPokes }: any) {
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                className={`w-full ${pathname === item.url ? 'activeLink' : ''}`}
-                
+                className={`w-full ${
+                  pathname === item.url ? "activeLink" : ""
+                }`}
                 href={item.url}
                 size="lg"
               >
