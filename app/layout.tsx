@@ -5,8 +5,7 @@ import { clsx } from "clsx";
 import Providers from "./provider";
 
 import { usePokemonStore } from "@/store/pokemonStore";
-import { NavBar } from "../components/NavBar";
-import { Footer } from "../components/Footer";
+
 
 const lato = Lato({
   subsets: ["latin"],
@@ -94,9 +93,9 @@ export default async function RootLayout({
     <html lang="pt-br">
       <body className={clsx("bg-white", lato.className)}>
         <Providers>
-          {/* <NavBar namesPokes={namesPokes} /> */}
+        
           {children}
-          {/* <Footer /> */}
+        
         </Providers>
       </body>
     </html>
