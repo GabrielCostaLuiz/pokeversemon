@@ -51,7 +51,8 @@ export function NavBarComponent({ namesPokes }: any) {
   const url = pathname;
 
   function handleSearchValue(e: any) {
-    setSearchValue(e.target.value);
+    const value = e.target.value.toLowerCase()
+    setSearchValue(value);
   }
 
   useEffect(() => {
@@ -335,14 +336,8 @@ export function NavBarComponent({ namesPokes }: any) {
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                className="w-full"
-                color={
-                  index === 2
-                    ? "warning"
-                    : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
+                className={`w-full ${pathname === '/' ? 'activeLink' : ''}`}
+                
                 href={item.url}
                 size="lg"
               >
