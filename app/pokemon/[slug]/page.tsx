@@ -15,12 +15,13 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read route params
   const id = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
-  
 
   // fetch data
-  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.slug}`).then((res) => res.json())
+  const pokemon = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${params.slug}`
+  ).then((res) => res.json());
 
-  const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`
+  const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
 
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
@@ -30,6 +31,7 @@ export async function generateMetadata(
     openGraph: {
       images: [img],
     },
+    description: `Explore os detalhes do ${pokemon.name}, desde suas informações básicas até suas habilidades únicas e estatísticas de batalha. Descubra seus tipos, fraquezas e evoluções. Uma análise detalhada para treinadores Pokémon dedicados!`,
   };
 }
 

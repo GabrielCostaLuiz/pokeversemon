@@ -336,7 +336,7 @@ export function NavBarComponent({ namesPokes }: any) {
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                className={`w-full ${pathname === '/' ? 'activeLink' : ''}`}
+                className={`w-full ${pathname === item.url ? 'activeLink' : ''}`}
                 
                 href={item.url}
                 size="lg"
